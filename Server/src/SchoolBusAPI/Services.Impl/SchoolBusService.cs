@@ -594,8 +594,8 @@ namespace SchoolBusAPI.Services.Impl
                 }
                 catch (Exception e)
                 {
-                    Console.WriteLine($"Send request failed. Log: {e.Message}");
                     result = null;
+                    Console.WriteLine(e.ToString());
                 }
 
                 finally
@@ -613,7 +613,7 @@ namespace SchoolBusAPI.Services.Impl
                     }
 
                 }
-
+                
                 // check that the result has a value
                 if (result != null)
                 {
@@ -621,7 +621,7 @@ namespace SchoolBusAPI.Services.Impl
                 }
                 else
                 {
-                    return new StatusCodeResult(400); // problem occured
+                    return new StatusCodeResult(503);
                 }
 
             }
